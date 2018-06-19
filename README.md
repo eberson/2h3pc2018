@@ -1,1 +1,3 @@
-Este é um teste do repositório git
+== Projeto de Estudo do 2º H3 - 1º Semestre de 2018 ==
+
+Eu resolvi melhorar aquela porcaria de descricao que tinha antes....
