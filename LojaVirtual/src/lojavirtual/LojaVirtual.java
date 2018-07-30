@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javax.persistence.Persistence;
 import lojavirtual.principal.PrincipalController;
 
 /**
@@ -20,6 +21,7 @@ public class LojaVirtual extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        Persistence.createEntityManagerFactory("LojaVirtualPU");
         Parent root = PrincipalController.getRootParent();
         
         Scene scene = new Scene(root);
