@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="lojavirtual.usuario.ListaUsuariosController">
+   <children>
+      <Label fx:id="labelMessage" layoutX="161.0" layoutY="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <Button layoutX="183.0" layoutY="288.0" mnemonicParsing="false" onAction="#acaoOk" prefHeight="38.0" prefWidth="103.0" text="OK" />
+   </children>
+</AnchorPane>
