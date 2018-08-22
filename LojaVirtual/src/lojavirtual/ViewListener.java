@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lojavirtual.usuario;
+package lojavirtual;
 
-import lojavirtual.BaseView;
-import lojavirtual.ViewListener;
+import javafx.stage.Stage;
 
 /**
  *
  * @author etec
  */
-public interface ListaUsuariosView extends BaseView, ViewListener{
-    
-    
-    
+public interface ViewListener {
+    void registerEvents(Stage stage);
 }

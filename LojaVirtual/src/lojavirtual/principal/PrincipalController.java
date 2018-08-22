@@ -31,7 +31,7 @@ public class PrincipalController implements Initializable {
     }
     
     public void acaoUsuarios(ActionEvent event) throws Exception{
-        StageUtil.openNewStage(ListaUsuariosController.getRootParent());
+        StageUtil.openNewStage(ListaUsuariosController.getParentURL());
     }
     
     @Override

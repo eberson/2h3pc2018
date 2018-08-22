@@ -6,14 +6,11 @@
 package lojavirtual.usuario;
 
 import lojavirtual.BaseView;
-import lojavirtual.ViewListener;
 
 /**
  *
  * @author etec
  */
-public interface ListaUsuariosView extends BaseView, ViewListener{
-    
-    
+public interface NovoUsuarioView extends BaseView{
     
 }
