@@ -7,8 +7,11 @@ package lojavirtual;
 
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -18,6 +21,11 @@ import javafx.util.Duration;
 public abstract class BaseViewImpl implements BaseView{
     
     protected abstract Label currentLabelForMessage();
+    
+    public void acaoSair(ActionEvent event){
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
 
     @Override
     public void showMessage(MessageType type, String message) {

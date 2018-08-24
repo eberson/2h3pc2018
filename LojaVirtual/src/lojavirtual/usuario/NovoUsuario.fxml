@@ -6,6 +6,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lojavirtual.usuario.NovoUsuarioController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="374.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="lojavirtual.usuario.NovoUsuarioController">
+   <children>
+      <Label layoutX="151.0" layoutY="21.0" text="Novo Usuário" />
+      <Label layoutX="53.0" layoutY="129.0" text="Nome" />
+      <Label layoutX="53.0" layoutY="166.0" text="E-mail" />
+      <Label layoutX="53.0" layoutY="202.0" text="Senha" />
+      <Label layoutX="53.0" layoutY="234.0" text="Tipo Usuário" />
+      <TextField fx:id="campoNome" layoutX="153.0" layoutY="125.0" />
+      <TextField fx:id="campoEmail" layoutX="153.0" layoutY="162.0" />
+      <PasswordField fx:id="campoSenha" layoutX="153.0" layoutY="198.0" />
+      <ComboBox fx:id="tipoUsuario" layoutX="153.0" layoutY="230.0" prefWidth="150.0" />
+      <Label fx:id="mensagem" layoutX="16.0" layoutY="64.0" prefHeight="17.0" prefWidth="337.0" />
+      <Button layoutX="109.0" layoutY="299.0" mnemonicParsing="false" onAction="#acaoSalvar" prefHeight="44.0" prefWidth="88.0" text="OK" />
+      <Button layoutX="228.0" layoutY="308.0" mnemonicParsing="false" onAction="#acaoSair" prefHeight="25.0" prefWidth="73.0" text="Sair" />
+   </children>
 </AnchorPane>

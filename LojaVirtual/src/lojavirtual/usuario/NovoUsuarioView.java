@@ -6,11 +6,17 @@
 package lojavirtual.usuario;
 
 import lojavirtual.BaseView;
+import lojavirtual.domain.TipoUsuario;
 
 /**
  *
  * @author etec
  */
 public interface NovoUsuarioView extends BaseView{
+    
+    String getNome();
+    String getEmail();
+    String getSenha();
+    TipoUsuario getTipoUsuario();
     
 }

@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,6 +44,18 @@ public class Usuario implements Serializable, Entidade<Long>{
     @NotNull
     @Length(min = 6, max = 30)
     private String senha;
+    
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    private TipoUsuario tipo;
+
+    public TipoUsuario getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoUsuario tipo) {
+        this.tipo = tipo;
+    }
 
     @Override
     public Long getKey() {

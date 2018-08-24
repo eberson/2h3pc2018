@@ -31,7 +31,7 @@ public class PersistenceUtil {
         return em;
     }
     
-    public Repository<Usuario, Long> getRepositorioUsuario(){
+    public static Repository<Usuario, Long> getRepositorioUsuario(){
         return new BaseRepository<>(Usuario.class);
     }
     
