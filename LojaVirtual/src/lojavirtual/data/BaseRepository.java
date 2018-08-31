@@ -21,7 +21,7 @@ import lojavirtual.domain.Entidade;
 @SuppressWarnings("LocalVariableHidesMemberVariable")
 class BaseRepository<T extends Entidade, K> implements Repository<T, K>{
     
-    private final EntityManager em;
+    protected final EntityManager em;
     private final Class<T> type;
 
     public BaseRepository(Class<T> type) {

@@ -3,21 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lojavirtual.usuario;
+package lojavirtual.data;
 
 import java.util.List;
-import lojavirtual.BaseView;
-import lojavirtual.ViewListener;
 import lojavirtual.domain.Usuario;
 
 /**
  *
  * @author etec
  */
-public interface ListaUsuariosView extends BaseView, ViewListener{
+public interface UsuarioRepository extends Repository<Usuario, Long>{
     
-    String getNomeUsuarioPesquisa();
-    
-    void showUsuarios(List<Usuario> usuarios);
+    List<Usuario> findAllByName(String nome);
     
 }

@@ -9,14 +9,15 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lojavirtual.usuario.ListaUsuariosController">
    <children>
       <Label fx:id="labelMessage" layoutX="161.0" layoutY="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
-      <Button layoutX="483.0" layoutY="76.0" mnemonicParsing="false" onAction="#acaoOk" prefHeight="38.0" prefWidth="103.0" text="Novo Usuário" />
+      <Button layoutX="483.0" layoutY="56.0" mnemonicParsing="false" onAction="#acaoOk" prefHeight="38.0" prefWidth="103.0" text="Novo Usuário" />
       <Label layoutX="244.0" layoutY="23.0" text="Listagem de Usuários" />
-      <TableView layoutX="11.0" layoutY="143.0" prefHeight="242.0" prefWidth="573.0">
+      <TableView fx:id="tabela" layoutX="11.0" layoutY="143.0" prefHeight="242.0" prefWidth="573.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Código" />
-          <TableColumn prefWidth="250.0" text="Nome" />
-            <TableColumn prefWidth="200.0" text="E-mail" />
+          <TableColumn fx:id="colunaCodigo" prefWidth="75.0" text="Código" />
+          <TableColumn fx:id="colunaNome" prefWidth="250.0" text="Nome" />
+            <TableColumn fx:id="colunaEmail" prefWidth="200.0" text="E-mail" />
         </columns>
       </TableView>
+      <TextField fx:id="campoPesquisa" layoutX="7.0" layoutY="112.0" onKeyPressed="#acaoClicarNoCampoDePesquisa" prefHeight="25.0" prefWidth="580.0" promptText="Informe um nome para pesquisar" />
    </children>
 </AnchorPane>
