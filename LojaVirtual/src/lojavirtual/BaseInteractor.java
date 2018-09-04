@@ -5,6 +5,7 @@
  */
 package lojavirtual;
 
+import java.text.Normalizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.validation.ValidationException;
@@ -30,6 +31,13 @@ public abstract class BaseInteractor {
         }
         
         view.showMessage(MessageType.ERROR, exception.getMessage());
+    }
+    
+    protected static String preparaTexto(String s){
+        s = s.toUpperCase();
+        s = Normalizer.normalize(s, Normalizer.Form.NFD);
+        s = s.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+        return s;
     }
     
     protected abstract void runImpl();

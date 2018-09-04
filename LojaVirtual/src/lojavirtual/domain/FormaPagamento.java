@@ -7,14 +7,30 @@ package lojavirtual.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author etec
  */
-public class FormaPagamento implements Serializable{
+@Entity
+@Table
+public class FormaPagamento implements Serializable, Entidade<Long>{
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @NotBlank
+    @NotNull
+    @Max(50)
     private String nome;
 
     public Long getId() {
@@ -56,5 +72,10 @@ public class FormaPagamento implements Serializable{
             return false;
         }
         return true;
+    }
+
+    @Override
+    public Long getKey() {
+        return getId();
     }
 }

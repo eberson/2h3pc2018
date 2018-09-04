@@ -7,7 +7,6 @@ package lojavirtual.usuario;
 
 import java.text.Normalizer;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import lojavirtual.BaseInteractor;
 import lojavirtual.MessageType;
@@ -48,12 +47,4 @@ public class ListaUsuariosInteractor extends BaseInteractor{
         view.showUsuarios(resultadoPesquisa);
         view.showMessage(MessageType.INFO, String.format("Foram encontrado(s) %d usuários", resultadoPesquisa.size()));
     }
-    
-    public static String preparaTexto(String s){
-        s = s.toUpperCase();
-        s = Normalizer.normalize(s, Normalizer.Form.NFD);
-        s = s.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
-        return s;
-    }
-    
 }

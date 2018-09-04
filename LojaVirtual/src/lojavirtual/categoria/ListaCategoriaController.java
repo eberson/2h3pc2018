@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lojavirtual.usuario;
+package lojavirtual.categoria;
 
 import java.net.URL;
 import java.util.List;
@@ -20,10 +20,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import lojavirtual.BaseViewImpl;
 import lojavirtual.ViewListener;
+import lojavirtual.domain.Categoria;
 import lojavirtual.domain.Usuario;
+import lojavirtual.usuario.NovoUsuarioController;
 import lojavirtual.util.StageUtil;
 
 /**
@@ -31,68 +32,68 @@ import lojavirtual.util.StageUtil;
  *
  * @author etec
  */
-public class ListaUsuariosController extends BaseViewImpl implements Initializable, ListaUsuariosView, ViewListener {
+public class ListaCategoriaController extends BaseViewImpl implements Initializable, ViewListener, ListaCategoriaView {
     
-    @FXML private Label labelMessage;
+    @FXML private Label labelMensagem;
+    
     @FXML private TextField campoPesquisa;
     
-    @FXML private TableView<Usuario> tabela;
-    @FXML private TableColumn<Usuario, Long> colunaCodigo;
-    @FXML private TableColumn<Usuario, String> colunaNome;
-    @FXML private TableColumn<Usuario, String> colunaEmail;
-    
-    public static URL getParentURL() throws Exception{
-        return ListaUsuariosController.class.getResource("ListaUsuarios.fxml");
-    }
+    @FXML private TableView<Categoria> tabela;
+    @FXML private TableColumn<Categoria, Long> colunaId;
+    @FXML private TableColumn<Categoria, String> colunaDescricao;
 
+    public static URL getParentURL() throws Exception{
+        return ListaCategoriaController.class.getResource("ListaCategoria.fxml");
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<Usuario> listaUsuarios = FXCollections.observableArrayList();
+        ObservableList<Categoria> lista = FXCollections.observableArrayList();
         
-        colunaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-        colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        colunaEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colunaId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colunaDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         
-        tabela.setItems(listaUsuarios);
+        tabela.setItems(lista);
+    }
+
+    public void acaoNovaCategoria(ActionEvent event) throws Exception{
+        StageUtil.openNewStage(NovaCategoriaController.getParentURL());
     }    
 
     @Override
     protected Label currentLabelForMessage() {
-        return labelMessage;
-    }
-    
-    public void acaoOk(ActionEvent event){
-        StageUtil.openNewStage(NovoUsuarioController.getParentURL());
+        return labelMensagem;
     }
     
     private void updateData(){
-        new ListaUsuariosInteractor(this).run();
+        new ListaCategoriaInteractor(this).run();
     }
 
     @Override
     public void registerEvents(Stage stage) {
-        stage.setOnShown((WindowEvent event) -> updateData());
-    }
-
-    @Override
-    public String getNomeUsuarioPesquisa() {
-        return campoPesquisa.getText();
+        stage.setOnShown((event) -> updateData());
+        
     }
     
     public void acaoClicarNoCampoDePesquisa(KeyEvent event){
         String pesquisa = campoPesquisa.getText();
         
         if (pesquisa.length() >= 3 || pesquisa.trim().isEmpty()){
-            new ListaUsuariosInteractor(this).run();
+            new ListaCategoriaInteractor(this).run();
         }
     }
 
     @Override
-    public void showUsuarios(List<Usuario> usuarios) {
-        ObservableList<Usuario> listaUsuarios = FXCollections.observableArrayList(usuarios);
-        tabela.setItems(listaUsuarios);
+    public String getNomeCategoriaPesquisada() {
+        return campoPesquisa.getText();
+    }
+
+    @Override
+    public void showCategorias(List<Categoria> categorias) {
+        ObservableList<Categoria> lista = FXCollections.observableArrayList(categorias);
+        tabela.setItems(lista);
     }
 }

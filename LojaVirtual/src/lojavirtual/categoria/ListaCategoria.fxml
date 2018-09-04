@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="438.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="lojavirtual.categoria.ListaCategoriaController">
+   <children>
+      <Label layoutX="250.0" layoutY="22.0" text="Lista de Categorias" />
+      <Button layoutX="500.0" layoutY="87.0" mnemonicParsing="false" onAction="#acaoNovaCategoria" prefHeight="33.0" prefWidth="90.0" text="Nova" AnchorPane.rightAnchor="10.0" />
+      <TextField fx:id="campoPesquisa" layoutX="10.0" layoutY="129.0" onKeyPressed="#acaoClicarNoCampoDePesquisa" prefHeight="25.0" prefWidth="503.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <TableView fx:id="tabela" layoutX="23.0" layoutY="136.0" prefHeight="265.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <columns>
+          <TableColumn fx:id="colunaId" prefWidth="100.0" text="Id" />
+          <TableColumn fx:id="colunaDescricao" prefWidth="400.0" text="Descrição" />
+        </columns>
+      </TableView>
+      <Label fx:id="labelMensagem" layoutX="10.0" layoutY="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+   </children>
+</AnchorPane>

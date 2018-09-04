@@ -8,6 +8,7 @@ package lojavirtual.data;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import lojavirtual.domain.Categoria;
 import lojavirtual.domain.Usuario;
 
 /**
@@ -33,6 +34,10 @@ public class PersistenceUtil {
     
     public static Repository<Usuario, Long> getRepositorioUsuario(){
         return new BaseRepository<>(Usuario.class);
+    }
+    
+    public static Repository<Categoria, Long> getRepositorioCategoria(){
+        return new BaseRepository<>(Categoria.class);
     }
     
 }

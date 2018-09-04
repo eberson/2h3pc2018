@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="241.0" prefWidth="479.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="lojavirtual.categoria.NovaCategoriaController">
+   <children>
+      <Label layoutX="206.0" layoutY="23.0" text="Nova Categoria" />
+      <Label fx:id="labelForMessage" layoutX="14.0" layoutY="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Button layoutX="305.0" layoutY="175.0" mnemonicParsing="false" onAction="#acaoSalvar" prefHeight="37.0" prefWidth="83.0" text="Salvar" AnchorPane.rightAnchor="91.0" />
+      <Label layoutX="27.0" layoutY="118.0" text="Descrição" />
+      <TextField fx:id="campoDescricao" layoutX="87.0" layoutY="114.0" prefHeight="25.0" prefWidth="375.0" />
+      <Button layoutX="400.0" layoutY="187.0" mnemonicParsing="false" onAction="#acaoSair" text="Cancelar" />
+   </children>
+</AnchorPane>
