@@ -27,7 +27,7 @@ public class Categoria implements Serializable, Entidade<Long>{
     private Long id;
     
     @NotBlank
-    @NotNull
+    @NotNull(message = "O campo descrição é obrigatório")
     private String descricao;
 
     public Long getId() {

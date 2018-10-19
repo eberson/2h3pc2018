@@ -1,0 +1,5 @@
+Esse está em Inglês :P
+https://code.oursky.com/viper-ios-architecture-beyond-mega-viewcontroller/
+
+Esse está em Português :)
+http://equinocios.com/viper/2017/03/14/comecando-com-viper/

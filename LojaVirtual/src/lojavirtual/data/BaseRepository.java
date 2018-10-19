@@ -6,10 +6,13 @@
 package lojavirtual.data;
 
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import lojavirtual.domain.Entidade;
 
 /**
@@ -36,12 +39,24 @@ class BaseRepository<T extends Entidade, K> implements Repository<T, K>{
             transaction.begin();
             runnable.run(em);
             transaction.commit();
+        } catch (ConstraintViolationException e) {
+            if (transaction.isActive()){
+                transaction.rollback();
+            }
+            
+            StringBuilder message = new StringBuilder();
+            
+            e.getConstraintViolations().stream().forEach((v) -> message.append(String.format("%s %s.", v.getPropertyPath(), v.getMessage())));
+            
+            throw new RuntimeException(message.toString());            
         } catch (Exception e) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Erro ao executar transação", e);
             
             if (transaction.isActive()){
                 transaction.rollback();
             }
+            
+            throw new RuntimeException(e.getMessage());
         }
     }
 

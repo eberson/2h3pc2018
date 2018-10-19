@@ -10,7 +10,6 @@ import lojavirtual.MessageType;
 import lojavirtual.data.PersistenceUtil;
 import lojavirtual.data.Repository;
 import lojavirtual.domain.Categoria;
-import lojavirtual.domain.Usuario;
 
 /**
  *
@@ -27,12 +26,16 @@ public class NovaCategoriaInteractor extends BaseInteractor{
 
     @Override
     protected void runImpl() {
-        Categoria categoria = new Categoria();
-        categoria.setDescricao(view.getDescricao());
-        
-        Repository<Categoria, Long> repositorio = PersistenceUtil.getRepositorioCategoria();
-        repositorio.save(categoria);
-        view.showMessage(MessageType.INFO, "Categoria criada com sucesso!");
+        try {
+            Categoria categoria = new Categoria();
+            categoria.setDescricao(view.getDescricao());
+
+            Repository<Categoria, Long> repositorio = PersistenceUtil.getRepositorioCategoria();
+            repositorio.save(categoria);
+            view.showMessage(MessageType.INFO, "Categoria criada com sucesso!");
+        } catch (Exception e) {
+            view.showMessage(MessageType.ERROR, e.getMessage());
+        }
     }
     
 }

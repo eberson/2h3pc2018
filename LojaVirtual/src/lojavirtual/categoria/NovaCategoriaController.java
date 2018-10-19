@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import lojavirtual.BaseViewImpl;
-import lojavirtual.usuario.NovoUsuarioInteractor;
+
 
 /**
  * FXML Controller class

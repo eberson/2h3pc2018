@@ -26,14 +26,18 @@ public class NovoUsuarioInteractor extends BaseInteractor{
 
     @Override
     protected void runImpl() {
-        Usuario usuario = new Usuario();
-        usuario.setNome(view.getNome());
-        usuario.setEmail(view.getEmail());
-        usuario.setSenha(view.getSenha());
-        usuario.setTipo(view.getTipoUsuario());
-        
-        Repository<Usuario, Long> repositorio = PersistenceUtil.getRepositorioUsuario();
-        repositorio.save(usuario);
-        view.showMessage(MessageType.INFO, "Usuário criado com sucesso!");
+        try {
+            Usuario usuario = new Usuario();
+            usuario.setNome(view.getNome());
+            usuario.setEmail(view.getEmail());
+            usuario.setSenha(view.getSenha());
+            usuario.setTipo(view.getTipoUsuario());
+
+            Repository<Usuario, Long> repositorio = PersistenceUtil.getRepositorioUsuario();
+            repositorio.save(usuario);
+            view.showMessage(MessageType.INFO, "Usuário criado com sucesso!");
+        } catch (Exception e) {
+            view.showMessage(MessageType.ERROR, e.getMessage());
+        }
     }
 }
