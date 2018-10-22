@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import lojavirtual.domain.Categoria;
+import lojavirtual.domain.Produto;
 import lojavirtual.domain.Usuario;
 
 /**
@@ -38,6 +39,10 @@ public class PersistenceUtil {
     
     public static Repository<Categoria, Long> getRepositorioCategoria(){
         return new BaseRepository<>(Categoria.class);
+    }
+    
+    public static Repository<Produto, Long> getRepositorioProduto(){
+        return new BaseRepository<>(Produto.class);
     }
     
 }
