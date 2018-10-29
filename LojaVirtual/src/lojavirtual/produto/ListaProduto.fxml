@@ -7,25 +7,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="583.0" prefWidth="740.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="lojavirtual.produto.ListaProdutoController">
+<AnchorPane id="AnchorPane" prefHeight="583.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lojavirtual.produto.ListaProdutoController">
    <children>
       <Label layoutX="314.0" layoutY="20.0" text="Lista Produtos">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="635.0" layoutY="99.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="95.0" text="Novo" AnchorPane.rightAnchor="10.0" />
-      <TextField layoutX="10.0" layoutY="140.0" prefHeight="25.0" prefWidth="654.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-      <TableView layoutX="10.0" layoutY="147.0" prefHeight="400.0" prefWidth="720.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Button layoutX="635.0" layoutY="99.0" mnemonicParsing="false" onAction="#acaoNovoProduto" prefHeight="34.0" prefWidth="95.0" text="Novo" AnchorPane.rightAnchor="10.0" />
+      <TextField fx:id="nomeProdutoPesquisa" layoutX="10.0" layoutY="140.0" onKeyTyped="#acaoClicarNoCampoDePesquisa" prefHeight="25.0" prefWidth="654.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <TableView fx:id="tabela" layoutX="10.0" layoutY="147.0" prefHeight="400.0" prefWidth="720.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="201.0" text="Nome" />
-            <TableColumn prefWidth="250.0" text="Descrição" />
-            <TableColumn prefWidth="63.0" text="Estoque" />
-            <TableColumn prefWidth="110.0" text="Categoria" />
+          <TableColumn fx:id="colunaID" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colunaNome" prefWidth="201.0" text="Nome" />
+            <TableColumn fx:id="colunaDescricao" prefWidth="250.0" text="Descrição" />
+            <TableColumn fx:id="colunaEstoque" prefWidth="63.0" text="Estoque" />
+            <TableColumn fx:id="colunaCategoria" prefWidth="110.0" text="Categoria" />
         </columns>
       </TableView>
-      <Label layoutX="10.0" layoutY="65.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Label fx:id="mensagem" layoutX="10.0" layoutY="65.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>

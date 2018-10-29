@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -23,6 +24,7 @@ import lojavirtual.BaseViewImpl;
 import lojavirtual.ViewListener;
 import lojavirtual.domain.Categoria;
 import lojavirtual.domain.Produto;
+import lojavirtual.util.StageUtil;
 
 /**
  * FXML Controller class
@@ -67,7 +69,7 @@ public class ListaProdutoController extends BaseViewImpl implements Initializabl
     }
 
     private void updateData(){
-        
+        new ListaProdutoInteractor(this).run();
     }
 
     @Override
@@ -75,11 +77,15 @@ public class ListaProdutoController extends BaseViewImpl implements Initializabl
         stage.setOnShown((event) -> updateData());
     }
     
+    public void acaoNovoProduto(ActionEvent event) throws Exception{
+        StageUtil.openNewStage(NovoProdutoController.getParentURL());
+    }
+    
     public void acaoClicarNoCampoDePesquisa(KeyEvent event){
         String pesquisa = nomeProdutoPesquisa.getText();
         
         if (pesquisa.length() >= 3 || pesquisa.trim().isEmpty()){
-            
+            updateData();
         }
     }
 
@@ -90,9 +96,7 @@ public class ListaProdutoController extends BaseViewImpl implements Initializabl
 
     @Override
     public void showProdutos(List<Produto> produtos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ObservableList<Produto> lista = FXCollections.observableArrayList(produtos);
+        tabela.setItems(lista);
     }
-
-    
-    
 }

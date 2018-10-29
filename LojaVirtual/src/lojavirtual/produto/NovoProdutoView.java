@@ -5,17 +5,16 @@
  */
 package lojavirtual.produto;
 
-import java.util.List;
 import lojavirtual.BaseView;
-import lojavirtual.domain.Produto;
 
 /**
  *
  * @author etec
  */
-public interface ListaProdutosView extends BaseView{
-
-    String getNomeProdutoPesquisado();
-
-    void showProdutos(List<Produto> produtos);
+public interface NovoProdutoView extends BaseView{
+    
+    String getNome();
+    String getDescricao();
+    double getEstoque();
+    
 }

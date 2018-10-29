@@ -14,6 +14,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#acaoUsuarios" text="Usuarios" />
                   <MenuItem mnemonicParsing="false" onAction="#acaoCategorias" text="Categorias" />
+                  <MenuItem mnemonicParsing="false" onAction="#acaoProdutos" text="Produtos" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" onAction="#acaoSair" text="Sair" />
             </items>
