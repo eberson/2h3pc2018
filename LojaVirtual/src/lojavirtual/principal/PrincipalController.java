@@ -47,7 +47,7 @@ public class PrincipalController implements Initializable {
     public void acaoFormaPagamento(ActionEvent event) throws Exception{
         StageUtil.openNewStage(NovaFormaPagamentoController.getParentURL());
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
