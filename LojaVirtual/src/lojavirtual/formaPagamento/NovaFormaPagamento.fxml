@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="189.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lojavirtual.formaPagamento.NovaFormaPagamentoController">
+   <children>
+      <Button layoutX="127.0" layoutY="103.0" mnemonicParsing="false" onAction="#acaoSalvar" prefHeight="25.0" prefWidth="55.0" text="Salvar" />
+      <Button layoutX="191.0" layoutY="103.0" mnemonicParsing="false" onAction="#acaoSair" prefHeight="25.0" prefWidth="47.0" text="Sair" />
+      <TextField fx:id="campoNome" layoutX="89.0" layoutY="67.0" />
+      <Label layoutX="90.0" layoutY="21.0" text="Forma Pagamento">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="37.0" layoutY="70.0" text="Nome">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="mensagem" layoutX="16.0" layoutY="149.0" prefHeight="17.0" prefWidth="277.0" />
+   </children>
+</AnchorPane>

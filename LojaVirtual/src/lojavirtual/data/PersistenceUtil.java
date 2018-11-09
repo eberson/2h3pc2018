@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import lojavirtual.domain.Categoria;
+import lojavirtual.domain.FormaPagamento;
 import lojavirtual.domain.Produto;
 import lojavirtual.domain.Usuario;
 
@@ -45,4 +46,7 @@ public class PersistenceUtil {
         return new BaseRepository<>(Produto.class);
     }
     
+    public static Repository<FormaPagamento, Long> getRepositorioFormaPagamento(){
+        return new BaseRepository<>(FormaPagamento.class);
+    }
 }

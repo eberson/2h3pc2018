@@ -50,4 +50,9 @@ public class Categoria implements Serializable, Entidade<Long>{
     public Long getKey() {
         return getId();
     }
+
+    @Override
+    public String toString() {
+        return getDescricao();
+    }
 }

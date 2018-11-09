@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
 
 /**
  *
@@ -30,7 +31,7 @@ public class FormaPagamento implements Serializable, Entidade<Long>{
     
     @NotBlank
     @NotNull
-    @Max(50)
+    @Length(min = 6, max = 50)
     private String nome;
 
     public Long getId() {

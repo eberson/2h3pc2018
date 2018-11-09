@@ -3,19 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lojavirtual.produto;
+package lojavirtual.formaPagamento;
 
-import java.util.List;
 import lojavirtual.BaseView;
-import lojavirtual.domain.Produto;
 
 /**
  *
  * @author etec
  */
-public interface ListaProdutosView extends BaseView{
-
-    String getNomeProdutoPesquisado();
-
-    void showProdutos(List<Produto> produtos);
+public interface NovaFormaPagamentoView extends BaseView{
+    
+    String getNome();
 }

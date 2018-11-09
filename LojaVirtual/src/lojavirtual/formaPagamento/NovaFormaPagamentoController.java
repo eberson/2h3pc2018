@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lojavirtual.produto;
+package lojavirtual.formaPagamento;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import lojavirtual.BaseViewImpl;
 
@@ -20,16 +19,13 @@ import lojavirtual.BaseViewImpl;
  *
  * @author etec
  */
-public class NovoProdutoController extends BaseViewImpl implements Initializable, NovoProdutoView {
-    
-    @FXML private Label mensagem;
-    
-    @FXML private TextField campoNome;
-    @FXML private TextArea campoDescricao;
-    @FXML private TextField campoEstoque;
+public class NovaFormaPagamentoController extends BaseViewImpl implements Initializable, NovaFormaPagamentoView {
 
-    public static URL getParentURL() throws Exception{
-        return NovoProdutoController.class.getResource("NovoProduto.fxml");
+    @FXML private Label mensagem;
+    @FXML private TextField campoNome;
+    
+    public static URL getParentURL(){
+        return NovaFormaPagamentoController.class.getResource("NovaFormaPagamento.fxml");
     }
     
     /**
@@ -49,23 +45,15 @@ public class NovoProdutoController extends BaseViewImpl implements Initializable
     public String getNome() {
         return campoNome.getText();
     }
-
-    @Override
-    public String getDescricao() {
-        return campoDescricao.getText();
-    }
-
-    @Override
-    public double getEstoque() {
-        return Double.parseDouble(campoEstoque.getText());
-    }
     
+    @FXML
+    public void acaoSalvar(ActionEvent event){
+        new NovaFormaPagamentoInteractor(this).run();
+    }
+
+    @FXML
     @Override
     public void acaoSair(ActionEvent event) {
-        super.acaoSair(event);
-    }
-    
-    public void acaoSalvar(ActionEvent event){
-        new NovoProdutoInteractor(this).run();
-    }
+        super.acaoSair(event); //To change body of generated methods, choose Tools | Templates.
+    }    
 }
