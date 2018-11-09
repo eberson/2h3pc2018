@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="583.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lojavirtual.formaPagamento.ListaFormaPagamentoController">
+   <children>
+      <Button layoutX="647.0" layoutY="100.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="84.0" text="Novo" />
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="176.0" prefHeight="398.0" prefWidth="716.0">
+        <columns>
+          <TableColumn fx:id="colunaId" prefWidth="113.0" text="ID" />
+          <TableColumn fx:id="colunaDescricao" prefWidth="567.0" text="Descriçao" />
+        </columns>
+      </TableView>
+      <Label layoutX="277.0" layoutY="26.0" text="Lista Forma Pagamento">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomeFormaPagamentoPesquisa" layoutX="15.0" layoutY="144.0" prefHeight="25.0" prefWidth="716.0" />
+      <Label fx:id="mensagem" layoutX="14.0" layoutY="61.0" prefHeight="17.0" prefWidth="716.0" />
+   </children>
+</AnchorPane>

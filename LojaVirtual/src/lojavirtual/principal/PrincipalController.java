@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import lojavirtual.categoria.ListaCategoriaController;
+import lojavirtual.formaPagamento.ListaFormaPagamentoController;
 import lojavirtual.formaPagamento.NovaFormaPagamentoController;
 import lojavirtual.produto.ListaProdutoController;
 import lojavirtual.usuario.ListaUsuariosController;
@@ -45,7 +46,7 @@ public class PrincipalController implements Initializable {
     }
     
     public void acaoFormaPagamento(ActionEvent event) throws Exception{
-        StageUtil.openNewStage(NovaFormaPagamentoController.getParentURL());
+        StageUtil.openNewStage(ListaFormaPagamentoController.getParentURL());
     }
 
     @Override
