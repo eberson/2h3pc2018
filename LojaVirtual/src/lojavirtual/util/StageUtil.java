@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lojavirtual.OpenListener;
 import lojavirtual.ViewListener;
 
 /**
@@ -30,7 +31,7 @@ public class StageUtil {
         stage.show();
     }
     
-    public static void openNewStage(URL fxmlUrl){
+    public static <T> void openNewStage(URL fxmlUrl){
         try {
             FXMLLoader loader = new FXMLLoader(fxmlUrl);
             
@@ -52,5 +53,35 @@ public class StageUtil {
             Logger.getLogger(StageUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static <T> void openNewStage(URL fxmlUrl, Class<T> type, OpenListener<T>... listeners){
+        try {
+            FXMLLoader loader = new FXMLLoader(fxmlUrl);
+            
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            
+            Initializable controller = loader.getController();
+            
+            if (controller instanceof ViewListener){
+                ((ViewListener) controller).registerEvents(stage);
+            }
+            for (OpenListener<T> listener : listeners){
+                if (type.isAssignableFrom(controller.getClass())){
+                    listener.onOpen((T) controller);
+                }                
+            }
+            
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(StageUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
     
 }

@@ -21,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import lojavirtual.BaseViewImpl;
+import lojavirtual.MessageType;
 import lojavirtual.ViewListener;
 import lojavirtual.domain.Categoria;
 import lojavirtual.domain.Usuario;
@@ -32,7 +33,7 @@ import lojavirtual.util.StageUtil;
  *
  * @author etec
  */
-public class ListaCategoriaController extends BaseViewImpl implements Initializable, ViewListener, ListaCategoriaView {
+public class ListaCategoriaController extends BaseViewImpl implements Initializable, ViewListener, ListaCategoriaView, RemoveCategoriaView {
     
     @FXML private Label labelMensagem;
     
@@ -41,6 +42,8 @@ public class ListaCategoriaController extends BaseViewImpl implements Initializa
     @FXML private TableView<Categoria> tabela;
     @FXML private TableColumn<Categoria, Long> colunaId;
     @FXML private TableColumn<Categoria, String> colunaDescricao;
+    
+    private Categoria categoria;
 
     public static URL getParentURL() throws Exception{
         return ListaCategoriaController.class.getResource("ListaCategoria.fxml");
@@ -96,4 +99,24 @@ public class ListaCategoriaController extends BaseViewImpl implements Initializa
         ObservableList<Categoria> lista = FXCollections.observableArrayList(categorias);
         tabela.setItems(lista);
     }
+
+    @Override
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    
+    public void acaoRemover(ActionEvent event) throws Exception{
+        categoria = tabela.getSelectionModel().getSelectedItem();
+        
+        if (categoria == null){
+            showMessage(MessageType.ERROR, "Uma categoria deve ser selecionada para remoção");
+            return;
+        }
+        
+        new RemoveCategoriaInteractor(this).run();
+        updateData();
+    }
+    
+    
+    
 }

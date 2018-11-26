@@ -6,8 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="438.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="lojavirtual.categoria.ListaCategoriaController">
+<AnchorPane id="AnchorPane" prefHeight="438.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lojavirtual.categoria.ListaCategoriaController">
    <children>
       <Label layoutX="250.0" layoutY="22.0" text="Lista de Categorias" />
       <Button layoutX="500.0" layoutY="87.0" mnemonicParsing="false" onAction="#acaoNovaCategoria" prefHeight="33.0" prefWidth="90.0" text="Nova" AnchorPane.rightAnchor="10.0" />
@@ -17,6 +16,13 @@
           <TableColumn fx:id="colunaId" prefWidth="100.0" text="Id" />
           <TableColumn fx:id="colunaDescricao" prefWidth="400.0" text="Descrição" />
         </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#acaoRemover" text="Excluir" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
       </TableView>
       <Label fx:id="labelMensagem" layoutX="10.0" layoutY="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
