@@ -116,7 +116,4 @@ public class ListaCategoriaController extends BaseViewImpl implements Initializa
         new RemoveCategoriaInteractor(this).run();
         updateData();
     }
-    
-    
-    
 }

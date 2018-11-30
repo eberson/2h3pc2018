@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 import lojavirtual.domain.Categoria;
 import lojavirtual.domain.FormaPagamento;
 import lojavirtual.domain.Produto;
+import lojavirtual.domain.TabelaPreco;
 import lojavirtual.domain.Usuario;
 
 /**
@@ -48,5 +49,9 @@ public class PersistenceUtil {
     
     public static Repository<FormaPagamento, Long> getRepositorioFormaPagamento(){
         return new BaseRepository<>(FormaPagamento.class);
+    }
+    
+    public static Repository<TabelaPreco, Long> getRepositorioTabelaPreco(){
+        return new BaseRepository<>(TabelaPreco.class);
     }
 }

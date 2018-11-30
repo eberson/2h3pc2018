@@ -9,12 +9,19 @@
 
 <AnchorPane id="AnchorPane" prefHeight="583.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lojavirtual.formaPagamento.ListaFormaPagamentoController">
    <children>
-      <Button layoutX="647.0" layoutY="100.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="84.0" text="Novo" />
+      <Button layoutX="647.0" layoutY="100.0" mnemonicParsing="false" onAction="#acaoNovaFormaPagamento" prefHeight="33.0" prefWidth="84.0" text="Novo" />
       <TableView fx:id="tabela" layoutX="14.0" layoutY="176.0" prefHeight="398.0" prefWidth="716.0">
         <columns>
           <TableColumn fx:id="colunaId" prefWidth="113.0" text="ID" />
           <TableColumn fx:id="colunaDescricao" prefWidth="567.0" text="Descriçao" />
         </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#acaoRemover" text="Excluir" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
       </TableView>
       <Label layoutX="277.0" layoutY="26.0" text="Lista Forma Pagamento">
          <font>
